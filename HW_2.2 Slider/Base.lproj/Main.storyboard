@@ -72,6 +72,9 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="a0q-NU-xMx">
                                 <rect key="frame" x="181" y="335" width="219" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
+                                <connections>
+                                    <action selector="rgbSliderChange" destination="BYZ-38-t0r" eventType="valueChanged" id="zZh-R4-pu1"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fch-ea-vUv">
                                 <rect key="frame" x="181" y="381" width="219" height="31"/>

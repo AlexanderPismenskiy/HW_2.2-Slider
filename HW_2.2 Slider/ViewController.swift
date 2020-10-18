@@ -21,10 +21,19 @@ class ViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        
+        redValue.text = String(redSlider.value)
+        greenValue.text = String(greenSlider.value)
+        blueValue.text = String(blueSlider.value)
     }
-
-
+    func changeColor() {
+        screenView.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1)
+    }
+    @IBAction func rgbSliderChange() {
+        changeColor()
+    }
 }
 
