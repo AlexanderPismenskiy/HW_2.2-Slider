@@ -79,10 +79,16 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fch-ea-vUv">
                                 <rect key="frame" x="181" y="381" width="219" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
+                                <connections>
+                                    <action selector="rgbSliderChange" destination="BYZ-38-t0r" eventType="valueChanged" id="4Tf-ZL-44v"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="oHq-q3-deJ">
                                 <rect key="frame" x="181" y="427" width="219" height="31"/>
                                 <color key="minimumTrackTintColor" systemColor="systemBlueColor"/>
+                                <connections>
+                                    <action selector="rgbSliderChange" destination="BYZ-38-t0r" eventType="valueChanged" id="tNS-ph-hTD"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
