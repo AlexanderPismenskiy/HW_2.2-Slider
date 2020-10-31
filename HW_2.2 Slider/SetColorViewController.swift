@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SetColorViewController: UIViewController {
    
     @IBOutlet var screenView: UIView!
     
@@ -31,13 +31,7 @@ class ViewController: UIViewController {
     
     @IBAction func rgbSlider(_ sender: UISlider) {
         setColor()
-        
-        switch sender.tag {
-        case 0: redValue.text = string(from: sender)
-        case 1: greenValue.text = string(from: sender)
-        case 2: blueValue.text = string(from: sender)
-        default: break
-        }
+        setValue(for: redValue, greenValue, blueValue)
     }
     
     
