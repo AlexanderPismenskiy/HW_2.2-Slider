@@ -7,6 +7,29 @@
 
 import UIKit
 
+protocol MainViewControllerDelegate {
+    func changeColor(_ color: UIColor)
+}
+
 class MainViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .cyan
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let setColorVC = segue.destination as! SetColorViewController
+        setColorVC.delegate = self
+        setColorVC.mainViewColor = view.backgroundColor
+        
+    }
 }
+
+extension MainViewController: MainViewControllerDelegate {
+    func changeColor(_ color: UIColor) {
+        view.backgroundColor = color
+    }
+}
+
+
