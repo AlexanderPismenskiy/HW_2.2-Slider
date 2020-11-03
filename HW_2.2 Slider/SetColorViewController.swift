@@ -19,7 +19,6 @@ class SetColorViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
-    
     @IBOutlet var redValueTextField: UITextField!
     @IBOutlet var greenValueTextField: UITextField!
     @IBOutlet var blueValueTextField: UITextField!
@@ -44,25 +43,32 @@ class SetColorViewController: UIViewController {
     
     @IBAction func rgbSlider(_ sender: UISlider) {
         switch sender.tag {
-        case 0: setValue(for: redValue)
-                setValue(for: redValueTextField)
-        case 1: setValue(for: greenValue)
-                setValue(for: greenValueTextField)
-        case 2: setValue(for: blueValue)
-                setValue(for: blueValueTextField)
+        case 1:
+            setValue(for: redValue)
+            setValue(for: redValueTextField)
+        case 2:
+            setValue(for: greenValue)
+            setValue(for: greenValueTextField)
+        case 3:
+            setValue(for: blueValue)
+            setValue(for: blueValueTextField)
         default: break
         }
         
         setColor()
     }
-    
+
  
     @IBAction func doneButtonPresse() {
         delegate.changeColor(screenView.backgroundColor ?? .white)
         dismiss(animated: true)
     }
+}
     
     
+extension SetColorViewController {
+
+        
    private func setColor() {
         screenView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
@@ -75,9 +81,9 @@ class SetColorViewController: UIViewController {
     private func setValue (for labels: UILabel...) {
         labels.forEach { label in
             switch label.tag {
-            case 0: redValue.text = string(from: redSlider)
-            case 1: greenValue.text = string(from: greenSlider)
-            case 2: blueValue.text = string(from: blueSlider)
+            case 1: redValue.text = string(from: redSlider)
+            case 2: greenValue.text = string(from: greenSlider)
+            case 3: blueValue.text = string(from: blueSlider)
             default: break
             }
         }
@@ -87,9 +93,9 @@ class SetColorViewController: UIViewController {
     private func setValue (for textFields: UITextField...) {
         textFields.forEach { textField in
             switch textField.tag {
-            case 0: redValueTextField.text = string(from: redSlider)
-            case 1: greenValueTextField.text = string(from: greenSlider)
-            case 2: blueValueTextField.text = string(from: blueSlider)
+            case 1: redValueTextField.text = string(from: redSlider)
+            case 2: greenValueTextField.text = string(from: greenSlider)
+            case 3: blueValueTextField.text = string(from: blueSlider)
             default: break
             }
         }
@@ -137,14 +143,15 @@ class SetColorViewController: UIViewController {
         view.endEditing(true)
     }
     
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
+        private func showAlert(title: String, message: String) {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: true)
+        }
+        
     }
 
-}
 
 extension SetColorViewController: UITextFieldDelegate {
     
@@ -159,13 +166,13 @@ extension SetColorViewController: UITextFieldDelegate {
         
         if let currentValue = Float(text) {
             switch textField.tag {
-            case 0:
+            case 1:
                 redSlider.setValue(currentValue, animated: true)
                 setValue(for: redValueTextField)
-            case 1:
+            case 2:
                 greenSlider.setValue(currentValue, animated: true)
                 setValue(for: greenValueTextField)
-            case 2:
+            case 3:
                 blueSlider.setValue(currentValue, animated: true)
                 setValue(for: blueValueTextField)
             default: break
